@@ -1,33 +1,13 @@
 from pathlib import Path
 import streamlit as st
-from urllib import request
-from io import BytesIO
 
-st.subheader("Image diagnostics")
+ASSETS = Path(__file__).parent / "assets"
+LOGO = ASSETS / "Vallourecimage.png"
 
-# Local file check
-p = Path(__file__).parent / "assets" / "Vallourecimage.png"
-st.write("Local path:", str(p))
-st.write("Exists:", p.exists())
-if p.exists():
-    st.image(str(p), caption="Local logo")
-
-# Raw URL check
-raw_url = "https://raw.githubusercontent.com/NeoJammerZX/String-calculator/main/Vallourecimage.png"
-st.write("Raw URL:", raw_url)
-
-def fetch_bytes(url):
-    try:
-        with request.urlopen(url, timeout=10) as resp:
-            return BytesIO(resp.read())
-    except Exception as e:
-        st.error(f"Fetch failed: {e}")
-        return None
-
-b = fetch_bytes(raw_url)
-if b:
-    st.image(b, caption="Fetched from raw URL")
-
+if LOGO.exists():
+    st.image(str(LOGO), caption="VAM Field Service – Orientation", use_column_width=False)
+else:
+    st.warning(f"Logo not found at {LOGO}. Add it under assets/ and redeploy.")
 
 import streamlit as st
 from math import pi
@@ -61,7 +41,7 @@ if 'total_angle_result' not in st.session_state:
     st.session_state.total_angle_result = None
 
 # Display image above the title
-# st.image("https://raw.githubusercontent.com/NeoJammerZX/String-calculator/blob/main/Vallourecimage.png", size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
+ st.image("https://raw.githubusercontent.com/NeoJammerZX/String-calculator/blob/main/Vallourecimage.png", size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
 
 # Sidebar navigation with gradient background and enforced white text
 st.markdown(
@@ -710,6 +690,7 @@ elif st.session_state.page == "Horizontal Assemblies Configuration":
                 assembly["name"] = f"Assy {i + 1}"  # Reset the name to default (e.g., "Assy 1", "Assy 2", etc.)
             st.session_state.num_assemblies = 2  # Reset to default number of assemblies
             st.rerun()  
+
 
 
 
