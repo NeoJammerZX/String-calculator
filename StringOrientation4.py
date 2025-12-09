@@ -30,7 +30,7 @@ if 'total_angle_result' not in st.session_state:
     st.session_state.total_angle_result = None
 
 # Display image above the title
-st.logo("C:/Users/Rafael.Cortado/NeoCodes/VallourecLogo.png", size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
+st.logo("https://github.com/NeoJammerZX/String-calculator/blob/main/VallourecLogo.png", size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
 
 # Sidebar navigation with gradient background and enforced white text
 st.markdown(
@@ -679,3 +679,4 @@ elif st.session_state.page == "Horizontal Assemblies Configuration":
                 assembly["name"] = f"Assy {i + 1}"  # Reset the name to default (e.g., "Assy 1", "Assy 2", etc.)
             st.session_state.num_assemblies = 2  # Reset to default number of assemblies
             st.rerun()  
+
