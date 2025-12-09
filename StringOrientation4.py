@@ -1,22 +1,3 @@
-
-from pathlib import Path
-import streamlit as st
-
-ASSETS_DIR = Path(__file__).parent / "assets"
-LOGO_PATH = ASSETS_DIR / "VallourecLogo.png"
-
-st.write("Logo path (resolved):", str(LOGO_PATH))
-st.write("File exists on server:", LOGO_PATH.exists())
-
-if LOGO_PATH.exists():
-    st.image(str(LOGO_PATH), caption="Local logo test", use_column_width=False)
-else:
-    # Try a known-good public URL to isolate whether it’s a path issue
-    st.image(
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2048px-React-icon.svg.png",
-        caption="URL logo test", use_column_width=False
-    )
-
 import streamlit as st
 from math import pi
 
@@ -49,33 +30,7 @@ if 'total_angle_result' not in st.session_state:
     st.session_state.total_angle_result = None
 
 # Display image above the title
-# st.logo("C:/Users/Rafael.Cortado/NeoCodes/VallourecLogo.png", size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
-
-from pathlib import Path
-import streamlit as st
-
-# Resolve the path to the assets folder relative to this file
-ASSETS_DIR = Path(__file__).parent / "assets"
-LOGO_PATH = ASSETS_DIR / "VallourecLogo.png"
-
-# Optional: fallback URL if local file isn't found
-FALLBACK_URL = "https://upload.wikimedia.org/.../your_public_logo.png"  # replace with a valid URL
-
-def show_logo():
-    try:
-        if LOGO_PATH.exists():
-            st.image(str(LOGO_PATH), size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
-        else:
-            # Fallback to URL (or use st.image)
-            st.image(FALLBACK_URL, size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
-    except Exception:
-        # If st.image is unavailable or errors, use st.image as a safe fallback
-        if LOGO_PATH.exists():
-            st.image(str(LOGO_PATH), use_column_width=False)
-        else:
-            st.image(FALLBACK_URL, use_column_width=False)
-
-show_logo()
+st.logo("C:/Users/Rafael.Cortado/NeoCodes/VallourecLogo.png", size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
 
 # Sidebar navigation with gradient background and enforced white text
 st.markdown(
@@ -723,6 +678,4 @@ elif st.session_state.page == "Horizontal Assemblies Configuration":
                 assembly["angle_known"] = "Yes"
                 assembly["name"] = f"Assy {i + 1}"  # Reset the name to default (e.g., "Assy 1", "Assy 2", etc.)
             st.session_state.num_assemblies = 2  # Reset to default number of assemblies
-
             st.rerun()  
-
