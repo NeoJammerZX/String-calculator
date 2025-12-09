@@ -1,3 +1,22 @@
+
+from pathlib import Path
+import streamlit as st
+
+ASSETS_DIR = Path(__file__).parent / "assets"
+LOGO_PATH = ASSETS_DIR / "VallourecLogo.png"
+
+st.write("Logo path (resolved):", str(LOGO_PATH))
+st.write("File exists on server:", LOGO_PATH.exists())
+
+if LOGO_PATH.exists():
+    st.image(str(LOGO_PATH), caption="Local logo test", use_column_width=False)
+else:
+    # Try a known-good public URL to isolate whether it’s a path issue
+    st.image(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2048px-React-icon.svg.png",
+        caption="URL logo test", use_column_width=False
+    )
+
 import streamlit as st
 from math import pi
 
@@ -45,12 +64,12 @@ FALLBACK_URL = "https://upload.wikimedia.org/.../your_public_logo.png"  # replac
 def show_logo():
     try:
         if LOGO_PATH.exists():
-            st.logo(str(LOGO_PATH), size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
+            st.image(str(LOGO_PATH), size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
         else:
             # Fallback to URL (or use st.image)
-            st.logo(FALLBACK_URL, size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
+            st.image(FALLBACK_URL, size="large", link="https://solutions.vallourec.com/services/orientation-by-vam-field-service/")
     except Exception:
-        # If st.logo is unavailable or errors, use st.image as a safe fallback
+        # If st.image is unavailable or errors, use st.image as a safe fallback
         if LOGO_PATH.exists():
             st.image(str(LOGO_PATH), use_column_width=False)
         else:
@@ -706,3 +725,4 @@ elif st.session_state.page == "Horizontal Assemblies Configuration":
             st.session_state.num_assemblies = 2  # Reset to default number of assemblies
 
             st.rerun()  
+
