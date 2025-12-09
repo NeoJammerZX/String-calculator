@@ -68,19 +68,19 @@ st.session_state.page = st.sidebar.radio(
 # Add descriptions in the sidebar
 if st.session_state.page == "Vertical String Orientation Calculator":
     st.sidebar.image(
-        r"C:\Users\Rafael.Cortado\NeoCodes\RotaryRef1.png",  # Replace with the actual path to your image
+        r"https://github.com/NeoJammerZX/String-calculator/blob/main/RotaryRef1.png",  # Replace with the actual path to your image
         caption="For rig applications and aligning two assemblies like a hanger to a well slot",
         use_container_width=True
     )
 elif st.session_state.page == "Horizontal Assemblies Configuration":
     st.sidebar.image(
-        r"C:\Users\Rafael.Cortado\NeoCodes\AssemblyRef.png",  # Replace with the actual path to your image
+        r"https://github.com/NeoJammerZX/String-calculator/blob/main/AssemblyRef.png",  # Replace with the actual path to your image
         caption="For assemblies made up in workshop applications like smart completion tools",
         use_container_width=True
     )
 elif st.session_state.page == "Documentation":
     st.sidebar.image(
-        r"C:\Users\Rafael.Cortado\NeoCodes\AssemblyMakeUpRef.png",  # Replace with the actual path to your image
+        r"https://github.com/NeoJammerZX/String-calculator/blob/main/AssemblyMakeUpRef.png",  # Replace with the actual path to your image
         caption="Technical reference section for this site and documentation relevant to job execution",
         use_container_width=True
     )
@@ -123,7 +123,7 @@ if st.session_state.page == "Documentation":
     )
     # Example GIF/Image Placeholder
     st.image(
-        r"C:\Users\Rafael.Cortado\NeoCodes\barrettescheck.gif",
+        r"https://github.com/NeoJammerZX/String-calculator/blob/main/barrettescheck.gif",
         caption="Ensure the barrettes are properly checked and calibrated before use",
         use_container_width=True
     )
@@ -131,19 +131,19 @@ if st.session_state.page == "Documentation":
     col1, col2 = st.columns(2)  # Create two columns
     with col1:
         st.image(
-            r"C:\Users\Rafael.Cortado\NeoCodes\barrettepin.gif",
+            r"https://github.com/NeoJammerZX/String-calculator/blob/main/barrettepin.gif",
             caption="The barrettes will stop at the pin or box shoulder",
             use_container_width=True
         )
     with col2:
         st.image(
-            r"C:\Users\Rafael.Cortado\NeoCodes\barrettebox.gif",  # Replace with the second image path
+            r"https://github.com/NeoJammerZX/String-calculator/blob/main/barrettebox.gif",  # Replace with the second image path
             caption="Clearly mark this stop point on the connection body",
             use_container_width=True
         )
         
     st.image(
-        r"C:\Users\Rafael.Cortado\NeoCodes\DistanceMethod.png",
+        r"https://github.com/NeoJammerZX/String-calculator/blob/main/DistanceMethod.png",
         caption="Due to its accuracy, the distance method is the primary way of determining the angle between two barrette marks",
         use_container_width=True
     )
@@ -527,7 +527,7 @@ elif st.session_state.page == "Horizontal Assemblies Configuration":
                 assembly_index = i // 2  # Calculate the reversed assembly index
                 reversed_index = num_assemblies - 1 - assembly_index  # Reverse the index for right-to-left layout
                 st.image(
-                    r"C:\Users\Rafael.Cortado\NeoCodes\vssymbol.jpg",  # Replace with actual image path
+                    r"https://github.com/NeoJammerZX/String-calculator/blob/main/vssymbol.jpg",  # Replace with actual image path
                     caption=f"{st.session_state.assembly_data[reversed_index]['name']}",  # Reverse the assembly names
                     use_container_width=True
                 )
@@ -544,7 +544,7 @@ elif st.session_state.page == "Horizontal Assemblies Configuration":
                     )
                     # Display both the image and the calculated angle text
                     st.image(
-                        r"C:\Users\Rafael.Cortado\NeoCodes\pupjoint.jpg",  # Placeholder for pup joint image
+                        r"https://github.com/NeoJammerZX/String-calculator/blob/main/pupjoint.jpg",  # Placeholder for pup joint image
                         caption=f"Joint {reversed_joint_number}",
                         use_container_width=True
                     )
@@ -555,7 +555,7 @@ elif st.session_state.page == "Horizontal Assemblies Configuration":
                 else:
                 # Display only the image if angles are not available
                     st.image(
-                        r"C:\Users\Rafael.Cortado\NeoCodes\pupjoint.jpg",  # Placeholder for pup joint image
+                        r"https://github.com/NeoJammerZX/String-calculator/blob/main/pupjoint.jpg",  # Placeholder for pup joint image
                         caption=f"Joint {reversed_joint_number}",
                         use_container_width=True
                 )
@@ -679,4 +679,5 @@ elif st.session_state.page == "Horizontal Assemblies Configuration":
                 assembly["name"] = f"Assy {i + 1}"  # Reset the name to default (e.g., "Assy 1", "Assy 2", etc.)
             st.session_state.num_assemblies = 2  # Reset to default number of assemblies
             st.rerun()  
+
 
